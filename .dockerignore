@@ -1,0 +1,7 @@
+.git
+.gitignore
+.docker
+__pycache__/
+*.py[cod]
+*$py.class
+README.md

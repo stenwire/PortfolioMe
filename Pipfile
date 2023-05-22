@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+pygame = "*"
+requests = "*"
+django-storages = "*"
+boto3 = "*"
+python-decouple = "*"
+psycopg2-binary = "*"
+dj-database-url = "*"
+django-environ = "*"
+gunicorn = "*"
+isort = "*"
+black = "*"
+
+[dev-packages]
+black = "*"
+isort = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
