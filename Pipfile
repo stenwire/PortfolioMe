@@ -16,6 +16,8 @@ django-environ = "*"
 gunicorn = "*"
 isort = "*"
 black = "*"
+djangorestframework = "*"
+django-filter = "*"
 
 [dev-packages]
 black = "*"
