@@ -1,22 +1,16 @@
 from django.db import models
+from utils.models import TrackObjectStateMixin
 
 
-class Education(models.Model):
-    degree = models.CharField(
-        max_length=200, verbose_name="Degree"
-    )
-    school = models.CharField(
-        max_length=200, verbose_name="School"
-    )
-    location = models.CharField(
-        max_length=200, verbose_name="Location"
-    )
-    started_on = models.DateField(
-        max_length=200, verbose_name="Started on"
-    )
-    ended_on = models.DateField(
-        max_length=200, verbose_name="Ended on"
-    )
+class Education(TrackObjectStateMixin):
+    degree = models.CharField(max_length=200, verbose_name="Degree")
+    school = models.CharField(max_length=200, verbose_name="School")
+    location = models.CharField(max_length=200, verbose_name="Location")
+    started_on = models.DateField(max_length=200, verbose_name="Started on")
+    ended_on = models.DateField(max_length=200, verbose_name="Ended on")
+
+    class Meta:
+        ordering = ["-started_on"]
 
     def __str__(self) -> str:
         return f"{self.degree} - {self.school}"
