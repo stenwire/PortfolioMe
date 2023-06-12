@@ -14,6 +14,7 @@ class ArticleAdmin(admin.ModelAdmin):
         "status",
         "content",
     )
+    readonly_fields = ("uuid",)
     prepopulated_fields = {"slug": ("title",)}
 
 
