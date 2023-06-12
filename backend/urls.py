@@ -21,12 +21,13 @@ from backend.admin import admin_site
 
 urlpatterns = [
     path("admin/", admin_site.urls),
-    # path(
-    #     "api/v1/",
-    #     include(
-    #         [
-    #             path("blog/", include("blog.urls")),
-    #         ]
-    #     ),
-    # ),
+    path(
+        "api/v1/",
+        include(
+            [
+                path("blog/", include("blog.urls")),
+                path("bio/", include("bio.urls")),
+            ]
+        ),
+    ),
 ]
