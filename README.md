@@ -3,7 +3,7 @@ I initially started this project for myself, but I figured why not just make it 
 
 ##### [A more detailed readme coming up soon 🍳]
 
-### Things I'm currently trying to achieve with this project🍳
+### Things I'm currently trying to achieve with this project♨️
 - update Readme
 - deploying to render
   ##### Invite Contributors
@@ -14,11 +14,11 @@ I initially started this project for myself, but I figured why not just make it 
 
 
 
-## How to use: For mere mortals
+## How to use: For mere mortals 🙂
 ### Requirements:
 - Make, Docker, and Docker Compose
 
-### Running the application with Docker (recommended)
+### Running the application with Docker (recommended) 🐳
 - Clone the repo
 - `cd` into the repo
 - Duplicate the file named ".env.example", rename the new copy to ".env".
@@ -32,7 +32,7 @@ of the `.env` file.
 - You can start making requests by visiting [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - Edit the template as you want for your app
 
-### Running the application outside of Docker (not recommended, not even remotely)
+### Running the application outside of Docker (not recommended, not even remotely) ⚓
 - Create a database with Postgres through the `psql` command. Can't remember
 the whole steps and I'm too tired to google it, it's why I said you should
 use Docker.
