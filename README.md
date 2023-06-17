@@ -1,16 +1,21 @@
-# My-Portfolio 🚀
-I initially started this project for myself, but I figured why not just make it open source so everyone can benefit from it, Ikr I'm very kind - don't mention.
+<a href="https://github.com/stenwire/My-Portfolio"><img src="https://i.ibb.co/C6fPvsf/image.jpg" alt="image" border="0"></a>
+
+# PortfolioMe 🚀
+I initially started this project for myself, but why not just make it open source so everyone can benefit from it, Ikr I'm very kind - don't mention.
+
+link to API documentation: https://documenter.getpostman.com/view/16596786/2s93si1VTJ
 
 ##### [A more detailed readme coming up soon 🍳]
 
 ### Things I'm currently trying to achieve with this project♨️
 - update Readme
+- Create base Postman docs
 - deploying to render
   ##### Invite Contributors
 - publishing an article to announce
 - post on LinkedIn
-- post on twitter
-- post to whatsapp group(s)
+- post on Twitter
+- post to WhatsApp group(s)
 
 
 
