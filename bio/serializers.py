@@ -4,8 +4,8 @@ from .models.bio import Bio
 from .models.education import Education
 from .models.experience import Experience
 from .models.portfolio import Portfolio
-from .models.services import Services
-from .models.skills import Skills
+from .models.services import Service
+from .models.skills import Skill
 
 
 class BioSerializer(BaseSerializer):
@@ -30,9 +30,9 @@ class PortfolioSerializer(BaseSerializer):
 
 class ServicesSerializer(BaseSerializer):
     class Meta(BaseSerializer.Meta):
-        model = Services
+        model = Service
 
 
 class SkillsSerializer(BaseSerializer):
     class Meta(BaseSerializer.Meta):
-        model = Skills
+        model = Skill

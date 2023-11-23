@@ -18,6 +18,9 @@ class Bio(TrackObjectStateMixin):
     )
     phone = models.CharField(max_length=10, verbose_name="Phone")
     address = models.CharField(max_length=200, verbose_name="Address")
+    my_picture = models.URLField(
+        max_length=200, blank=True, verbose_name="Cover Image"
+    )
 
     def __str__(self) -> str:
         return f"{self.firstname} - {self.lastname}"

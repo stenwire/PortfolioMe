@@ -18,6 +18,7 @@ isort = "*"
 black = "*"
 djangorestframework = "*"
 django-filter = "*"
+drf-yasg = "*"
 
 [dev-packages]
 black = "*"

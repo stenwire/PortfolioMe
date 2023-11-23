@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from .swagger import schema_view
 
 from config.admin import admin_site
 
 urlpatterns = [
     path("admin/", admin_site.urls),
+    path("", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path("redoc/", schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path(
         "api/v1/",
         include(
