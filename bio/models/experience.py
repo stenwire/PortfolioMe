@@ -1,4 +1,5 @@
 from django.db import models
+
 from utils.models import TrackObjectStateMixin
 
 
@@ -7,9 +8,7 @@ class Experience(TrackObjectStateMixin):
     company = models.CharField(max_length=200, verbose_name="Company")
     location = models.CharField(max_length=200, verbose_name="Location")
     started_on = models.DateField(max_length=200, verbose_name="Started on")
-    ended_on = models.DateField(
-        max_length=200, verbose_name="Ended on", blank=True, default="Present"
-    )
+    ended_on = models.DateField(max_length=200, verbose_name="Ended on")
 
     class Meta:
         ordering = ["-started_on"]

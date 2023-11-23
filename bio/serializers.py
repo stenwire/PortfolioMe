@@ -1,24 +1,17 @@
-from rest_framework import serializers
+from utils.serializers import BaseSerializer
 
-from bio.models.bio import Bio
-from bio.models.education import Education
-from bio.models.experience import Experience
-from bio.models.portfolio import Portfolio
-
-class BaseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Bio
-        fields = "__all__"
-        lookup_fields = "pk"
-        read_only_fields = ("pk","uuid")
-        extra_kwargs = {
-            "url": {"lookup_field": ("pk")},
-        }
+from .models.bio import Bio
+from .models.education import Education
+from .models.experience import Experience
+from .models.portfolio import Portfolio
+from .models.services import Services
+from .models.skills import Skills
 
 
 class BioSerializer(BaseSerializer):
     class Meta(BaseSerializer.Meta):
         model = Bio
+
 
 class EducationSerializer(BaseSerializer):
     class Meta(BaseSerializer.Meta):
@@ -37,8 +30,9 @@ class PortfolioSerializer(BaseSerializer):
 
 class ServicesSerializer(BaseSerializer):
     class Meta(BaseSerializer.Meta):
-        model = Portfolio
+        model = Services
+
 
 class SkillsSerializer(BaseSerializer):
     class Meta(BaseSerializer.Meta):
-        model = Portfolio
+        model = Skills

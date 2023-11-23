@@ -2,7 +2,7 @@ from django import views
 from django.urls import path
 from django.urls.conf import include
 
-from bio.views import bio, education, experience, portfolio, skills, services
+from bio.views import bio, education, experience, portfolio, services, skills
 
 urlpatterns = [
     path("bio/", bio.ListCreateBioAPIView.as_view()),

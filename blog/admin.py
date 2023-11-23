@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from backend.admin import admin_site
 from blog.models import Article
+from config.admin import admin_site
 
 # Register your models here.
 

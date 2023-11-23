@@ -1,9 +1,9 @@
 from django.utils import timezone
-from rest_framework import generics, permissions, status
+from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 
-from blog.models import Article
-from blog.serializers import ArticleSerializer
+from blog.models import Article, Tag
+from blog.serializers import ArticleSerializer, TagSerializer
 
 
 class ListCreateArticleAPIView(generics.ListCreateAPIView):
@@ -18,11 +18,13 @@ class ListCreateArticleAPIView(generics.ListCreateAPIView):
 
     queryset = Article.objects.filter(status="1")
     serializer_class = ArticleSerializer
-    filterset_fields = "__all__"
+    filterset_fields = ["title", "author", "tags"]
     permission_classes = [permissions.IsAuthenticated]
 
 
-class RetrieveUpdateDestroyArticleAPIView(generics.RetrieveUpdateDestroyAPIView):
+class RetrieveUpdateDestroyArticleAPIView(
+    generics.RetrieveUpdateDestroyAPIView
+):
     """
     This view is used to:\n
         1. Read an article
@@ -32,6 +34,7 @@ class RetrieveUpdateDestroyArticleAPIView(generics.RetrieveUpdateDestroyAPIView)
 
     The user needs to be authenticated either by normal log-in or with api key
     """
+
     serializer_class = ArticleSerializer
     lookup_field = "uuid"
     permission_classes = [permissions.IsAuthenticated]
@@ -49,8 +52,14 @@ class ListUserArticleAPIView(generics.ListAPIView):
     """
 
     serializer_class = ArticleSerializer
-    filterset_fields = "__all__"
+    filterset_fields = ["title", "author", "tags"]
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Article.objects.filter(author=self.request.user)
+
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+    fields = ["title", "author", "tags"]

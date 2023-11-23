@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from backend.admin import admin_site
 from bio.models.bio import Bio
 from bio.models.education import Education
 from bio.models.experience import Experience
 from bio.models.portfolio import Portfolio
 from bio.models.services import Services
 from bio.models.skills import Skills
+from config.admin import admin_site
 
 # Register your models here.
 
@@ -45,6 +45,7 @@ class ServicesAdmin(admin.ModelAdmin):
 class EducationAdmin(admin.ModelAdmin):
     list_display = ("degree", "school", "location", "started_on", "ended_on")
     readonly_fields = ("uuid",)
+
 
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = (

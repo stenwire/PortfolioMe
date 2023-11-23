@@ -1,11 +1,9 @@
 from django.db import models
+
 from utils.models import TrackObjectStateMixin
 
-TAG = (
-    (0,"Website"),
-    (1,"API"),
-    (2,"Console")
-)
+TAG = ((0, "Website"), (1, "API"), (2, "Console"))
+
 
 class Portfolio(TrackObjectStateMixin):
     tag = models.IntegerField(choices=TAG, default=0, verbose_name="Tag")
@@ -15,7 +13,9 @@ class Portfolio(TrackObjectStateMixin):
     cover_image = models.URLField(
         max_length=200, blank=True, verbose_name="Cover Image"
     )
-    published_on = models.DateField(max_length=200, verbose_name="Published on")
+    published_on = models.DateField(
+        max_length=200, verbose_name="Published on"
+    )
 
     class Meta:
         ordering = ["-published_on"]
