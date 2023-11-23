@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import dj_database_url
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-2-bln%+-w##%9s87@md&nuj6ll+gg3hns=omh*0z*8%-54jhrb"
-)
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -45,9 +46,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # External apps
     "django_filters",
     "rest_framework",
     "drf_yasg",
+    # Created apps
     "blog",
     "bio",
 ]
@@ -86,12 +89,30 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+LOCAL_DATABASE = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("DEV_DB_NAME"),
+        "USER": config("DEV_DB_USER"),
+        "PASSWORD": config("DEV_DB_PASSWORD"),
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
+
+
+PROD_DATABASE = {
+    "default": dj_database_url.config(
+        default=f"postgres://{config('PROD_DB_USER')}:{config('PROD_DB_PASSWORD')}@{config('PROD_DB_HOST')}:5432/{config('PROD_DB_NAME')}"
+    )
+}
+
+_env = config("ENV")
+
+if _env == "development":
+    DATABASES = LOCAL_DATABASE
+elif _env == "production":
+    DATABASES = PROD_DATABASE
 
 
 # Password validation
