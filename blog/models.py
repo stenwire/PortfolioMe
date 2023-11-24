@@ -29,12 +29,6 @@ class Article(TrackObjectStateMixin):
     tags = models.ManyToManyField(Tag, related_name="articles")
     slug = models.SlugField(max_length=200, blank=True, unique=True)
     cover_image = models.URLField(_("URL to image"), max_length=200)
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="blog_posts",
-        verbose_name="Author",
-    )
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(_("Content"))
     created_on = models.DateTimeField(auto_now_add=True)
@@ -45,7 +39,7 @@ class Article(TrackObjectStateMixin):
         auto_now_add=True, blank=True, null=True, verbose_name="Published Date"
     )
 
-    OWNER_FIELD = "author"
+    OWNER_FIELD = ""
 
     class Meta:
         ordering = ["-published_date"]

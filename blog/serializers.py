@@ -5,7 +5,7 @@ from blog.models import Article, Tag
 
 class ArticleSerializer(serializers.ModelSerializer):
     tags = serializers.SlugRelatedField(
-        many=True, queryset=Tag.objects.all(), slug_field="text"
+        many=True, queryset=Tag.objects.all(), slug_field="name"
     )
 
     class Meta:
@@ -20,9 +20,9 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 class TagSerializer(serializers.ModelSerializer):
     articles = serializers.SlugRelatedField(
-        many=True, read_only=True, slug_field="name"
+        many=True, read_only=True, slug_field="title"
     )
 
     class Meta:
         model = Tag
-        fields = "__all__"
+        fields = ["name", "articles"]

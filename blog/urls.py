@@ -13,9 +13,10 @@ urlpatterns = [
         views.RetrieveUpdateDestroyArticleAPIView.as_view(),
         name="read-update-delete-article-view",
     ),
+    path("tags/", views.ListCreateTagAPIView.as_view(), name="tag-list"),
     path(
-        "articles/admin/",
-        views.ListUserArticleAPIView.as_view(),
-        name="list-articles-by-user-view",
+        "tags/<int:pk>/",
+        views.RetrieveUpdateDestroyTagAPIView.as_view(),
+        name="tag-detail",
     ),
 ]

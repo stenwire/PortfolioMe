@@ -7,7 +7,7 @@ from config.admin import admin_site
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ("title", "author", "status", "created_on")
+    list_display = ("title", "status", "created_on")
     list_filter = ("status", "created_on", "updated_on")
     search_fields = (
         "title",
